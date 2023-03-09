@@ -43,13 +43,10 @@ class Game:
             match direction:
                 case 'up':
                     self.board[:, i] = np.flip(self.__slideAndMerge(np.flip(self.board[:, i])))
-
                 case 'right':
                     self.board[i] = self.__slideAndMerge(self.board[i])
-
                 case 'down':
                     self.board[:, i] = self.__slideAndMerge(self.board[:, i])
-
                 case 'left':
                     self.board[i] = np.flip(self.__slideAndMerge(np.flip(self.board[i])))
     
@@ -78,6 +75,8 @@ class Game:
                     self.move('right')
                 elif char == 'D':
                     self.move('left')
+            else:
+                continue
 
             if self.hasLost():
                 print("lost")
